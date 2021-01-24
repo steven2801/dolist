@@ -119,14 +119,14 @@ function filterTodo(e) {
 function saveLocal(todo) {
     // Check if todo already in storage
     let todoArray;
-    if (localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todolist') === null) {
         todoArray = {};
     } else {
-        todoArray = JSON.parse(localStorage.getItem('todos'));
+        todoArray = JSON.parse(localStorage.getItem('todolist'));
     }
 
     todoArray[todo] = false;
-    localStorage.setItem('todos', JSON.stringify(todoArray));
+    localStorage.setItem('todolist', JSON.stringify(todoArray));
     console.log(todoArray);
 }
 
@@ -134,10 +134,10 @@ function toggleComplete(todo) {
     // Check if todo already in storage
     console.log(todo);
     let todoArray;
-    if (localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todolist') === null) {
         todoArray = {};
     } else {
-        todoArray = JSON.parse(localStorage.getItem('todos'));
+        todoArray = JSON.parse(localStorage.getItem('todolist'));
     }
 
     if (todoArray[todo] === true) {
@@ -145,16 +145,16 @@ function toggleComplete(todo) {
     } else {
         todoArray[todo] = true;
     }
-    localStorage.setItem('todos', JSON.stringify(todoArray));
+    localStorage.setItem('todolist', JSON.stringify(todoArray));
 }
 
 function getTodo() {
     // Check if todo already in storage
     let todoArray;
-    if (localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todolist') === null) {
         todoArray = {};
     } else {
-        todoArray = JSON.parse(localStorage.getItem('todos'));
+        todoArray = JSON.parse(localStorage.getItem('todolist'));
     }
 
     for (let [key, value] of Object.entries(todoArray)) {
@@ -189,24 +189,24 @@ function getTodo() {
 function removeTodo(todo) {
     // Check if todo already in storage
     let todoArray;
-    if (localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todolist') === null) {
         todoArray = {};
     } else {
-        todoArray = JSON.parse(localStorage.getItem('todos'));
+        todoArray = JSON.parse(localStorage.getItem('todolist'));
     }
 
     delete todoArray[todo];
-    localStorage.setItem('todos', JSON.stringify(todoArray));
+    localStorage.setItem('todolist', JSON.stringify(todoArray));
     console.log(todoArray);
 }
 
 function checkDuplicate(todo) {
     // Check if todo already in storage
     let todoArray;
-    if (localStorage.getItem('todos') === null) {
+    if (localStorage.getItem('todolist') === null) {
         todoArray = {};
     } else {
-        todoArray = JSON.parse(localStorage.getItem('todos'));
+        todoArray = JSON.parse(localStorage.getItem('todolist'));
     }
 
     let value = false;
